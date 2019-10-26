@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.3 on win32)" generated="20191021 22:21:28.367" rpa="false">
+<suite id="s1" name="TestRobot" source="C:\Users\jithu_000\Eclipse-New\TestRobot">
+<suite id="s1-s1" name="TestSuites" source="C:\Users\jithu_000\Eclipse-New\TestRobot\TestSuites">
+<suite id="s1-s1-s1" name="Test1" source="C:\Users\jithu_000\Eclipse-New\TestRobot\TestSuites\Test1.robot">
+<test id="s1-s1-s1-t1" name="Test1">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>URL</arg>
+<arg>${API_url}</arg>
+</arguments>
+<msg timestamp="20191021 22:21:28.893" level="INFO">Creating Session using : alias=URL, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20191021 22:21:28.892" endtime="20191021 22:21:28.894"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>URL</arg>
+<arg>/users</arg>
+</arguments>
+<assign>
+<var>${Response}</var>
+</assign>
+<msg timestamp="20191021 22:21:28.895" level="INFO">GET Request using : uri=/users, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20191021 22:21:30.146" level="INFO">C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\Lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20191021 22:21:30.147" level="INFO">${Response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20191021 22:21:28.895" endtime="20191021 22:21:30.147"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${Response.content}</arg>
+</arguments>
+<assign>
+<var>${Response_string}</var>
+</assign>
+<msg timestamp="20191021 22:21:30.148" level="INFO">${Response_string} = [
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwen...</msg>
+<status status="PASS" starttime="20191021 22:21:30.147" endtime="20191021 22:21:30.149"></status>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>${Response_string}</arg>
+</arguments>
+<msg timestamp="20191021 22:21:30.150" level="INFO">[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "address": {
+      "street": "Douglas Extension",
+      "suite": "Suite 847",
+      "city": "McKenziehaven",
+      "zipcode": "59590-4157",
+      "geo": {
+        "lat": "-68.6102",
+        "lng": "-47.0653"
+      }
+    },
+    "phone": "1-463-123-4447",
+    "website": "ramiro.info",
+    "company": {
+      "name": "Romaguera-Jacobson",
+      "catchPhrase": "Face to face bifurcated interface",
+      "bs": "e-enable strategic applications"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "Julianne.OConner@kory.org",
+    "address": {
+      "street": "Hoeger Mall",
+      "suite": "Apt. 692",
+      "city": "South Elvis",
+      "zipcode": "53919-4257",
+      "geo": {
+        "lat": "29.4572",
+        "lng": "-164.2990"
+      }
+    },
+    "phone": "493-170-9623 x156",
+    "website": "kale.biz",
+    "company": {
+      "name": "Robel-Corkery",
+      "catchPhrase": "Multi-tiered zero tolerance productivity",
+      "bs": "transition cutting-edge web services"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+    "email": "Lucio_Hettinger@annie.ca",
+    "address": {
+      "street": "Skiles Walks",
+      "suite": "Suite 351",
+      "city": "Roscoeview",
+      "zipcode": "33263",
+      "geo": {
+        "lat": "-31.8129",
+        "lng": "62.5342"
+      }
+    },
+    "phone": "(254)954-1289",
+    "website": "demarco.info",
+    "company": {
+      "name": "Keebler LLC",
+      "catchPhrase": "User-centric fault-tolerant solution",
+      "bs": "revolutionize end-to-end systems"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Dennis Schulist",
+    "username": "Leopoldo_Corkery",
+    "email": "Karley_Dach@jasper.info",
+    "address": {
+      "street": "Norberto Crossing",
+      "suite": "Apt. 950",
+      "city": "South Christy",
+      "zipcode": "23505-1337",
+      "geo": {
+        "lat": "-71.4197",
+        "lng": "71.7478"
+      }
+    },
+    "phone": "1-477-935-8478 x6430",
+    "website": "ola.org",
+    "company": {
+      "name": "Considine-Lockman",
+      "catchPhrase": "Synchronised bottom-line interface",
+      "bs": "e-enable innovative applications"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "username": "Elwyn.Skiles",
+    "email": "Telly.Hoeger@billy.biz",
+    "address": {
+      "street": "Rex Trail",
+      "suite": "Suite 280",
+      "city": "Howemouth",
+      "zipcode": "58804-1099",
+      "geo": {
+        "lat": "24.8918",
+        "lng": "21.8984"
+      }
+    },
+    "phone": "210.067.6132",
+    "website": "elvis.io",
+    "company": {
+      "name": "Johns Group",
+      "catchPhrase": "Configurable multimedia task-force",
+      "bs": "generate enterprise e-tailers"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+    "username": "Maxime_Nienow",
+    "email": "Sherwood@rosamond.me",
+    "address": {
+      "street": "Ellsworth Summit",
+      "suite": "Suite 729",
+      "city": "Aliyaview",
+      "zipcode": "45169",
+      "geo": {
+        "lat": "-14.3990",
+        "lng": "-120.7677"
+      }
+    },
+    "phone": "586.493.6943 x140",
+    "website": "jacynthe.com",
+    "company": {
+      "name": "Abernathy Group",
+      "catchPhrase": "Implemented secondary concept",
+      "bs": "e-enable extensible e-tailers"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Glenna Reichert",
+    "username": "Delphine",
+    "email": "Chaim_McDermott@dana.io",
+    "address": {
+      "street": "Dayna Park",
+      "suite": "Suite 449",
+      "city": "Bartholomebury",
+      "zipcode": "76495-3109",
+      "geo": {
+        "lat": "24.6463",
+        "lng": "-168.8889"
+      }
+    },
+    "phone": "(775)976-6794 x41206",
+    "website": "conrad.com",
+    "company": {
+      "name": "Yost and Sons",
+      "catchPhrase": "Switchable contextually-based project",
+      "bs": "aggregate real-time technologies"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "username": "Moriah.Stanton",
+    "email": "Rey.Padberg@karina.biz",
+    "address": {
+      "street": "Kattie Turnpike",
+      "suite": "Suite 198",
+      "city": "Lebsackbury",
+      "zipcode": "31428-2261",
+      "geo": {
+        "lat": "-38.2386",
+        "lng": "57.2232"
+      }
+    },
+    "phone": "024-648-3804",
+    "website": "ambrose.net",
+    "company": {
+      "name": "Hoeger LLC",
+      "catchPhrase": "Centralized empowering task-force",
+      "bs": "target end-to-end models"
+    }
+  }
+]</msg>
+<status status="PASS" starttime="20191021 22:21:30.149" endtime="20191021 22:21:30.150"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${Response_string}</arg>
+<arg>website</arg>
+</arguments>
+<status status="PASS" starttime="20191021 22:21:30.151" endtime="20191021 22:21:30.151"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20191021 22:21:30.151" endtime="20191021 22:21:30.152"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${Response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20191021 22:21:30.153" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20191021 22:21:30.153" endtime="20191021 22:21:30.154"></status>
+</kw>
+<status status="PASS" starttime="20191021 22:21:28.891" endtime="20191021 22:21:30.154" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t2" name="Test 2">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>URL</arg>
+<arg>${API_url}</arg>
+</arguments>
+<msg timestamp="20191021 22:21:30.156" level="INFO">Creating Session using : alias=URL, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20191021 22:21:30.156" endtime="20191021 22:21:30.157"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${create}</arg>
+</arguments>
+<assign>
+<var>${json_body}</var>
+</assign>
+<msg timestamp="20191021 22:21:30.158" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\jithu_000\Eclipse-New\TestRobot\DataFiles\Create.json"&gt;C:\Users\jithu_000\Eclipse-New\TestRobot\DataFiles\Create.json&lt;/a&gt;'.</msg>
+<msg timestamp="20191021 22:21:30.158" level="INFO">${json_body} =  {
+    "id": 0,
+    "name": "Test JK",
+    "username": "Maxime_JK",
+    "email": "Sherwood@jk.me",
+    "address": {
+      "street": "Ellsworth Summit",
+      "suite": "Suite 729",
+      "city"...</msg>
+<status status="PASS" starttime="20191021 22:21:30.157" endtime="20191021 22:21:30.159"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>URL</arg>
+<arg>/users</arg>
+<arg>data=${json_body}</arg>
+</arguments>
+<assign>
+<var>${Response}</var>
+</assign>
+<msg timestamp="20191021 22:21:30.160" level="INFO">POST Request using : uri=/users, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+data=None 
+json=None</msg>
+<msg timestamp="20191021 22:21:31.357" level="INFO">C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\Lib\site-packages\urllib3\connectionpool.py:1004: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20191021 22:21:31.357" level="INFO">${Response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20191021 22:21:30.159" endtime="20191021 22:21:31.358"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${Response.content}</arg>
+</arguments>
+<assign>
+<var>${Response_string}</var>
+</assign>
+<msg timestamp="20191021 22:21:31.359" level="INFO">${Response_string} = {
+  "id": 11
+}</msg>
+<status status="PASS" starttime="20191021 22:21:31.358" endtime="20191021 22:21:31.359"></status>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>${Response_string}</arg>
+</arguments>
+<msg timestamp="20191021 22:21:31.360" level="INFO">{
+  "id": 11
+}</msg>
+<status status="PASS" starttime="20191021 22:21:31.360" endtime="20191021 22:21:31.360"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${Response_string}</arg>
+<arg>id</arg>
+</arguments>
+<status status="PASS" starttime="20191021 22:21:31.361" endtime="20191021 22:21:31.361"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20191021 22:21:31.362" endtime="20191021 22:21:31.362"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${Response.status_code}</arg>
+<arg>201</arg>
+</arguments>
+<msg timestamp="20191021 22:21:31.363" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20191021 22:21:31.363" endtime="20191021 22:21:31.364"></status>
+</kw>
+<status status="PASS" starttime="20191021 22:21:30.155" endtime="20191021 22:21:31.364" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20191021 22:21:28.454" endtime="20191021 22:21:31.365"></status>
+</suite>
+<status status="PASS" starttime="20191021 22:21:28.450" endtime="20191021 22:21:31.368"></status>
+</suite>
+<status status="PASS" starttime="20191021 22:21:28.418" endtime="20191021 22:21:31.371"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="TestRobot">TestRobot</stat>
+<stat pass="2" fail="0" id="s1-s1" name="TestSuites">TestRobot.TestSuites</stat>
+<stat pass="2" fail="0" id="s1-s1-s1" name="Test1">TestRobot.TestSuites.Test1</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20191021 22:21:28.883" level="ERROR">Error in file 'C:\Users\jithu_000\Eclipse-New\TestRobot\GenericConfiguration\ImportFile.robot': Importing test library 'JsonLibrary' failed: ModuleNotFoundError: No module named 'JsonLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\Lib\site-packages
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\DLLs
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\libs
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\Scripts
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\python36.zip
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\lib
+  C:\Users\jithu_000\AppData\Local\Programs\Python\Python36\lib\site-packages</msg>
+</errors>
+</robot>
